@@ -9,8 +9,8 @@ import numpy as np
 CITY_DATA = { 'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
               'washington': 'washington.csv' }
-MONTH_DATA = ['all','january', 'february', 'march', 'april', 'may', 'june']
-DAY_DATA = ['all','sunday','monday','tuesday','wednesday','friday','saturday']
+MONTH_DATA = ['january', 'february', 'march', 'april', 'may', 'june']
+DAY_DATA = ['sunday','monday','tuesday','wednesday','friday','saturday']
 
 def get_filters():
     """
@@ -34,14 +34,14 @@ def get_filters():
         if month in MONTH_DATA:
             break
             print("wrong")
-            
-       
+
+
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
     while True:
         day=input("Enter the day:"%DAY_DATA).lower()
         if day in DAY_DATA:
-            break          
+            break
 
     print('-'*40)
     return city, month, day
@@ -128,8 +128,8 @@ def station_stats(df):
     # TO DO: display most frequent combination of start station and end station trip
     print("most frequent combination of start station and end station trip")
     print((df['Start Station']+df['End Station']).mode()[0])
-    
-    
+
+
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -150,7 +150,7 @@ def trip_duration_stats(df):
     print("average travel time")
     print(df['Trip Duration'].mean())
 
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -180,7 +180,7 @@ def user_stats(df,city):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def display_data(df):
     index=0
     user_input=input('would you like to display 5 rows of raw data? ').lower()
@@ -201,14 +201,14 @@ def main():
         while True:
             display_data(df)
             break
-        
+
 
         restart = input('\nWould you like to restart? Enter yes or no.\n')
         if restart.lower() != 'yes':
             break
         display_data(df)
         break
-       
+
 
 
 if __name__ == "__main__":
